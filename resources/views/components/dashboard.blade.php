@@ -31,10 +31,10 @@
            md:justify-between 
            md:pt-0">
                 <li>
-                    <a class="md:p-4 py-2 block hover:text-blue-400" href="#">Create new</a>
+                    <a class="md:p-4 py-2 block hover:text-blue-400" href="/">Your menus</a>
                 </li>
                 <li>
-                    <a class="md:p-4 py-2 block hover:text-blue-400" href="#">Your menus</a>
+                    <a class="md:p-4 py-2 block hover:text-blue-400" href="/create">Create new</a>
                 </li>
             </ul>
         </div>
@@ -43,6 +43,6 @@
         </div>
     </nav>
 </header>
-<main class="bg-gray-200 flex-1">
+<main class="bg-gray-200 flex-1 flex justify-center">
     {{ $slot }}
 </main>
