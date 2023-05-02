@@ -1,12 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MenuController;
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
-});
-
-Route::get('/dashboard/create', function () {
-    return view('dashboard.create');
-});
+Route::resource('/dashboard', MenuController::class);

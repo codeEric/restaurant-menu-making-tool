@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
             $table->string('url');
+            $table->integer("owner_id");
             $table->timestamps();
         });
     }
