@@ -1,5 +1,5 @@
 <x-layout title="Login">
-    <div class="flex col items-center justify-center h-full">
+    <div class="flex flex-col items-center justify-center h-full">
         <div class="w-1/4 border border-gray-200 p-6 rounded-xl drop-shadow-md">
             <form action="{{ route('login.post') }}" method="POST">
                 @csrf

@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MenuController extends Controller
 {
     public function index()
     {
 
-        $menus = Menu::all();
+        $menus = Menu::where('owner_id', '=', Auth::user()->id)->get();
 
         return view('dashboard.index', ["menus" => $menus]);
     }
@@ -22,7 +24,16 @@ class MenuController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $attributes = $request->validate([
+            'name' => 'required|min:3|max:255'
+        ]);
+
+        $attributes['url'] = Str::random(22);
+        $attributes['owner_id'] = Auth::user()->id;
+
+        Menu::create($attributes);
+
+        return redirect('/dashboard')->with('success', 'Menu has been created successfully.');
     }
 
 

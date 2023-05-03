@@ -1,9 +1,11 @@
 <x-layout title="Dashboard">
     <x-dashboard>
         @if ($menus->count() > 0)
-            @foreach ($menus as $menu)
-                <h1>{{ $menu->name }}</h1>
-            @endforeach
+            <div class="grid grid-cols-5 items-center justify-center gap-12">
+                @foreach ($menus as $menu)
+                    <x-card name="{{ $menu->name }}" url="{{ $menu->url }}" />
+                @endforeach
+            </div>
         @else
             <div class="flex flex-col justify-center items-center">
                 <h1 class="mb-4">You have no menus</h1>
