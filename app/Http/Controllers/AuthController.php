@@ -23,7 +23,7 @@ $request->validate([
 ]);
 $credentials = $request->only('email','password');
 if(Auth::attempt($credentials)){
-    return redirect()->intended('dashboard')->withSuccess('You have logged in successfully');
+    return redirect()->intended('dashboard-login')->withSuccess('You have logged in successfully');
 
 }
 
@@ -39,11 +39,11 @@ public function postRegistration(Request $request){
     $data = $request->all();
     $check = $this->create($data);
 
-    return redirect('dashboard')->withSuccess('You have successfully logged in!');
+    return redirect('dashboard-login')->withSuccess('You have successfully logged in!');
 }
 public function dashboard(){
     if(Auth::check()){
-        return view('login.dashboard');
+        return view('login.dashboard-login');
     }
     return redirect('login.login')->withSuccess('You do not have access');
 }
