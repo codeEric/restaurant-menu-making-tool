@@ -1,16 +1,5 @@
 <header class="flex-initial">
-    <nav
-        class="
-       flex flex-wrap
-       items-center
-       justify-between
-       w-full
-       py-4
-       md:py-0
-       px-4
-       text-lg text-gray-700
-       bg-white
-     ">
+    <nav class="flex flex-wrap items-center justify-between py-2 w-full md:py-0 px-4 text-lg text-gray-700 bg-white">
         <div>
             <a href="/dashboard">
                 Menu Tool
@@ -23,13 +12,7 @@
         </svg>
 
         <div class="hidden w-full md:flex md:items-center md:w-auto" id="menu">
-            <ul
-                class="
-           pt-4
-           text-base text-gray-700
-           md:flex
-           md:justify-between 
-           md:pt-0">
+            <ul class="text-base text-gray-700 md:flex md:justify-between  md:pt-0">
                 <li>
                     <a class="md:p-4 py-2 block hover:text-blue-400" href="/dashboard">Your menus</a>
                 </li>
@@ -39,7 +22,7 @@
             </ul>
         </div>
         <div>
-            <a class="md:p-4 py-2 block text-red-400 hover:text-red-600" href="#">Sign out</a>
+            <a class="md:p-4 py-2 block text-red-400 hover:text-red-600" href="/logout">Sign out</a>
         </div>
     </nav>
 </header>
