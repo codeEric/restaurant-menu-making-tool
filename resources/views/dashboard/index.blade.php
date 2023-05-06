@@ -3,7 +3,7 @@
         @if ($menus->count() > 0)
             <div class="grid grid-cols-5 items-center justify-center gap-12">
                 @foreach ($menus as $menu)
-                    <x-card name="{{ $menu->name }}" url="{{ $menu->url }}" />
+                    <x-card name="{{ $menu->name }}" url="{{ $menu->id }}" />
                 @endforeach
             </div>
         @else

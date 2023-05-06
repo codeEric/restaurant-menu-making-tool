@@ -7,7 +7,7 @@ use App\Http\Controllers\AuthController;
 Route::middleware('auth')->group(
   function () {
     Route::get('/', [MenuController::class, 'index']);
-    Route::resource('/dashboard', MenuController::class);
+    Route::resource('/dashboard', MenuController::class)->except('show');
   }
 );
 

@@ -25,11 +25,13 @@ class MenuController extends Controller
     public function store(Request $request)
     {
         $attributes = $request->validate([
-            'name' => 'required|min:3|max:255'
+            'name' => 'required|min:3|max:255',
+
         ]);
 
         $attributes['url'] = Str::random(22);
         $attributes['owner_id'] = Auth::user()->id;
+
 
         Menu::create($attributes);
 
@@ -39,13 +41,31 @@ class MenuController extends Controller
 
     public function edit(string $id)
     {
-        return view('dashboard.edit');
+        $menus = Menu::where('id','=',$id)->first();
+        
+        return view('dashboard.edit',['menus'=>$menus]);
     }
 
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name'=>'required|min:3|max:255',
+            // 'description'=>'required|min:3|max:255',
+            // 'category'=>'required|min:3|max:255'
+        ]);
+        $id = $request->id;
+        $name = $request->name;
+        // $description = $request ->description;
+        // $category = $request->category;
+   
+        Menu::where('id','=',$id)->update([
+            'name'=>$name,
+            // 'description'=>$description,
+            // 'category'=>$category
+        ]);
+        return redirect('/dashboard');
     }
+    
 
     public function destroy(string $id)
     {
