@@ -45,13 +45,13 @@ class MenuController extends Controller
         return view('dashboard.edit', ['menu' => $menu]);
     }
 
-    public function update(Request $request, string $id)
+    public function update(Request $request, Menu $menu)
     {
         $attributes = $request->validate([
             'name' => 'required|min:3|max:255',
         ]);
 
-        Menu::where('id', '=', $id)->update($attributes);
+        $menu->update($attributes);
         return redirect('/dashboard/menu');
     }
 
