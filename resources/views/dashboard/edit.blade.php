@@ -1,17 +1,39 @@
 <x-layout title="Edit menu - Dashboard">
     <x-dashboard>
         <div class="flex flex-col items-center w-96 pt-12">
-            <h1 class="text-2xl font-bold">Edit new menu</h1>
-            <form action="/dashboard/{{$menus->id}}" method="post">
-            @csrf
-            @method('put')
-            <input type="hidden" name="id" value="{{$menus->id}}">
-            <x-form.input  name="name" placeholder="Name" value="{{$menus->name}}"/>
-            {{-- <x-form.input  name="description" placeholder="Description" value="{{$menus->description}}"/> --}}
-            {{-- <x-form.input  name="category" placeholder="Category" value="{{$menus->category}}"/> --}}
-            <x-form.submit>Submit</x-form.submit>
-            <a href="{{url('#')}}" class="btn btn-danger">Back</a>
-    </form>
-</div>
-</x-dashboard>
+            <h1 class="text-2xl font-bold">Edit menu</h1>
+            <form action="/dashboard/{{ $menu->id }}" method="POST">
+                @csrf
+                @method('put')
+                <input type="hidden" name="id" value="{{ $menu->id }}">
+                <x-form.input name="name" placeholder="Name" value="{{ $menu->name }}" />
+                <div class="flex items-center justify-between">
+                    <a href="/dashboard"
+                        class="mt-6 flex justify-center items-center border border-green-400 text-black uppercase font-semibold text-xs py-2 px-8 mr-12 rounded-md hover:bg-green-600 hover:text-white hover:border-white">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                        Back
+                    </a>
+                    <x-form.submit>Save</x-form.submit>
+                </div>
+            </form>
+            <h2 class="text-xl font-bold mt-6">Actions</h2>
+            <div class="flex flex-col justify-center space-y-6 mt-4">
+                <a href=""
+                    class="w-full bg-green-500 flex justify-center items-center text-black uppercase font-semibold text-xs py-2 px-8 mr-12 rounded-md hover:bg-green-600">
+                    <span class="material-symbols-outlined">add</span>
+                    Add new item to menu
+                </a>
+
+                <form action="/dashboard/menu/{{ $menu->id }}" method="POST">
+                    @csrf
+                    @method('Delete')
+                    <button
+                        class="w-full bg-red-500 flex justify-center items-center text-black uppercase font-semibold text-xs py-2 px-8 mr-12 rounded-md hover:bg-red-600">
+                        <span class="material-symbols-outlined">delete_forever</span>
+                        Delete menu
+                    </button>
+                </form>
+            </div>
+        </div>
+    </x-dashboard>
 </x-layout>

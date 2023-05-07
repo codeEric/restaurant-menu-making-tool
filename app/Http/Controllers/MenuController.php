@@ -35,40 +35,30 @@ class MenuController extends Controller
 
         Menu::create($attributes);
 
-        return redirect('/dashboard')->with('success', 'Menu has been created successfully.');
+        return redirect('/dashboard/menu')->with('success', 'Menu has been created successfully.');
     }
 
 
-    public function edit(string $id)
+    public function edit(Menu $menu)
     {
-        $menus = Menu::where('id','=',$id)->first();
-        
-        return view('dashboard.edit',['menus'=>$menus]);
+        // dd($menu);
+        return view('dashboard.edit', ['menu' => $menu]);
     }
 
     public function update(Request $request, string $id)
     {
-        $request->validate([
-            'name'=>'required|min:3|max:255',
-            // 'description'=>'required|min:3|max:255',
-            // 'category'=>'required|min:3|max:255'
+        $attributes = $request->validate([
+            'name' => 'required|min:3|max:255',
         ]);
-        $id = $request->id;
-        $name = $request->name;
-        // $description = $request ->description;
-        // $category = $request->category;
-   
-        Menu::where('id','=',$id)->update([
-            'name'=>$name,
-            // 'description'=>$description,
-            // 'category'=>$category
-        ]);
-        return redirect('/dashboard');
-    }
-    
 
-    public function destroy(string $id)
+        Menu::where('id', '=', $id)->update($attributes);
+        return redirect('/dashboard/menu');
+    }
+
+
+    public function destroy(Menu $menu)
     {
-        //
+        $menu->delete();
+        return redirect("/dashboard/menu")->with('success', 'Menu has been deleted');
     }
 }
