@@ -4,7 +4,7 @@
             <div class="py-8">
                 <div class="flex justify-between">
                     <h2 class="text-2xl font-semibold leading-tight">{{ $menuItems[0]->menu->name }} - menu items</h2>
-                    <a href="/dashboard/menu/menu-items/create"
+                    <a href="/dashboard/menu/menu-items/{{ $menuItems[0]->menu->id }}/create"
                         class="bg-green-500 flex justify-center items-center text-black uppercase font-semibold text-xs p-1 rounded-md hover:bg-green-600">
                         <span class="material-symbols-outlined text-4xl text-white">add</span>
                     </a>
@@ -50,7 +50,7 @@
                                             <p>{{ $menuItem->description }}</p>
                                         </td>
                                         <td class="px-5 py-5 bg-white text-sm">
-                                            <p>{{ $menuItem->category }}</p>
+                                            <p>{{ ucfirst($menuItem->category) }}</p>
                                         </td>
                                         <td class="py-5 bg-white text-sm text-right">
                                             <div class="flex space-x-3">
@@ -58,7 +58,8 @@
                                                     class="bg-yellow-500 flex justify-center items-center text-black uppercase font-semibold text-xs p-1 rounded-md hover:bg-yellow-600">
                                                     <span class="material-symbols-outlined text-white">edit</span>
                                                 </a>
-                                                <form action="/dashboard/menu/menu-items/{{ $menuItem->id }}"
+                                                <form
+                                                    action="/dashboard/menu/menu-items/{{ $menuItem->menu->id }}/{{ $menuItem->id }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('Delete')

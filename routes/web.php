@@ -9,7 +9,10 @@ Route::middleware('auth')->group(
   function () {
     Route::get('/', [MenuController::class, 'index']);
     Route::resource('/dashboard/menu', MenuController::class)->except('show');
+    Route::delete('/dashboard/menu/menu-items/{menu}/{menuItem}', [MenuItemController::class, 'destroy']);
+    Route::post('/dashboard/menu/menu-items/{menu}', [MenuItemController::class, 'store']);
     Route::get('/dashboard/menu/menu-items/{menu}', [MenuItemController::class, 'index']);
+    Route::get('/dashboard/menu/menu-items/{menu}/create', [MenuItemController::class, 'create']);
   }
 );
 
