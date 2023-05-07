@@ -18,7 +18,7 @@
             </form>
             <h2 class="text-xl font-bold mt-6">Actions</h2>
             <div class="flex flex-col justify-center space-y-6 mt-4">
-                <a href=""
+                <a href="/dashboard/menu/menu-items/{{ $menu->id }}"
                     class="w-full bg-green-500 flex justify-center items-center text-black uppercase font-semibold text-xs py-2 px-8 mr-12 rounded-md hover:bg-green-600">
                     <span class="material-symbols-outlined">add</span>
                     Add new item to menu

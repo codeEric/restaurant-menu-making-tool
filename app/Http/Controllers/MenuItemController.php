@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Menu;
 use Illuminate\Http\Request;
 
 class MenuItemController extends Controller
@@ -9,9 +10,11 @@ class MenuItemController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Menu $menu)
     {
-        //
+        $menuItems = $menu->menuItem->all();
+
+        return view('dashboard.menu-items.index', ['menuItems' => $menuItems]);
     }
 
     /**

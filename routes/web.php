@@ -3,11 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MenuItemController;
 
 Route::middleware('auth')->group(
   function () {
     Route::get('/', [MenuController::class, 'index']);
     Route::resource('/dashboard/menu', MenuController::class)->except('show');
+    Route::get('/dashboard/menu/menu-items/{menu}', [MenuItemController::class, 'index']);
   }
 );
 

@@ -14,12 +14,12 @@ class MenuController extends Controller
 
         $menus = Menu::where('owner_id', '=', Auth::user()->id)->get();
 
-        return view('dashboard.index', ["menus" => $menus]);
+        return view('dashboard.menu.index', ["menus" => $menus]);
     }
 
     public function create()
     {
-        return view('dashboard.create');
+        return view('dashboard.menu.create');
     }
 
     public function store(Request $request)
@@ -41,8 +41,7 @@ class MenuController extends Controller
 
     public function edit(Menu $menu)
     {
-        // dd($menu);
-        return view('dashboard.edit', ['menu' => $menu]);
+        return view('dashboard.menu.edit', ['menu' => $menu]);
     }
 
     public function update(Request $request, Menu $menu)
