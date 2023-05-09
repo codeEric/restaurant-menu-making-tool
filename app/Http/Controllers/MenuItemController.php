@@ -15,7 +15,7 @@ class MenuItemController extends Controller
     {
         $menuItems = $menu->menuItem->all();
 
-        return view('dashboard.menu-items.index', ['menuItems' => $menuItems]);
+        return view('dashboard.menu-items.index', ['menuItems' => $menuItems, 'menu' => $menu]);
     }
 
     /**
@@ -34,6 +34,7 @@ class MenuItemController extends Controller
         // dd($request);
         $attributes = $request->validate([
             'name' => 'required',
+            'price' => 'required|numeric',
             'description' => 'required',
             'category' => 'required',
             'image' => ''

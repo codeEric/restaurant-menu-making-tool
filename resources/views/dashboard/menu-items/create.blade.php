@@ -5,6 +5,7 @@
             <form action="/dashboard/menu/menu-items/{{ $id }}" method="POST">
                 @csrf
                 <x-form.input name="name" />
+                <x-form.input name="price" />
                 <x-form.textarea name="description" />
                 <x-form.select name="category" />
                 <x-form.imageupload name="image"></x-form.imageupload>

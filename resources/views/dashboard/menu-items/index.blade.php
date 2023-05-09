@@ -1,10 +1,10 @@
-<x-layout title="{{ $menuItems[0]->menu->name . ' - menu items' }}">
+<x-layout title="{{ $menu->name . ' - menu items' }}">
     <x-dashboard>
         <div class="container mx-auto px-4 sm:px-8">
             <div class="py-8">
                 <div class="flex justify-between">
-                    <h2 class="text-2xl font-semibold leading-tight">{{ $menuItems[0]->menu->name }} - menu items</h2>
-                    <a href="/dashboard/menu/menu-items/{{ $menuItems[0]->menu->id }}/create"
+                    <h2 class="text-2xl font-semibold leading-tight">{{ $menu->name }} - menu items</h2>
+                    <a href="/dashboard/menu/menu-items/{{ $menu->id }}/create"
                         class="bg-green-500 flex justify-center items-center text-black uppercase font-semibold text-xs p-1 rounded-md hover:bg-green-600">
                         <span class="material-symbols-outlined text-4xl text-white">add</span>
                     </a>
@@ -21,6 +21,10 @@
                                     <th
                                         class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                                         Dish name
+                                    </th>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                                        Price
                                     </th>
                                     <th
                                         class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
@@ -45,6 +49,9 @@
                                         </td>
                                         <td class="px-5 py-5 bg-white text-sm">
                                             <h1 class="text-lg font-bold">{{ $menuItem->name }}</h1>
+                                        </td>
+                                        <td class="px-5 py-5 bg-white text-sm">
+                                            <p>{{ $menuItem->price }}&euro;</p>
                                         </td>
                                         <td class="px-5 py-5 bg-white text-sm">
                                             <p>{{ $menuItem->description }}</p>
