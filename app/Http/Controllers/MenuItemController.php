@@ -48,27 +48,30 @@ class MenuItemController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Menu $menu, MenuItem $menuItem)
     {
-        //
+        return view('dashboard.menu-items.edit', ['menu' => $menu, 'menuItem' => $menuItem]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Menu $menu, MenuItem $menuItem)
     {
-        //
+        $attributes = $request->validate([
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'description' => 'required',
+            'category' => 'required',
+            'image' => ''
+        ]);
+
+        $attributes['image'] = "image";
+        $menuItem->update($attributes);
+
+        return redirect("/dashboard/menu/menu-items/$menu->id")->with('success', 'Menu item has been updated');
     }
 
     /**

@@ -61,7 +61,7 @@
                                         </td>
                                         <td class="py-5 bg-white text-sm text-right">
                                             <div class="flex space-x-3">
-                                                <a href="/dashboard/menu/menu-items/{{ $menuItem->id }}/edit"
+                                                <a href="/dashboard/menu/menu-items/{{ $menuItem->menu->id }}/{{ $menuItem->id }}/edit"
                                                     class="bg-yellow-500 flex justify-center items-center text-black uppercase font-semibold text-xs p-1 rounded-md hover:bg-yellow-600">
                                                     <span class="material-symbols-outlined text-white">edit</span>
                                                 </a>
