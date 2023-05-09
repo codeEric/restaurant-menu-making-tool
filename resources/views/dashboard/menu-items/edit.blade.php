@@ -2,7 +2,8 @@
     <x-dashboard>
         <div class="flex flex-col items-center w-96 pt-12">
             <h1 class="text-2xl font-bold">Edit menu item: {{ $menuItem->name }}</h1>
-            <form action="/dashboard/menu/menu-items/{{ $menu->id }}/{{ $menuItem->id }}" method="POST">
+            <form action="/dashboard/menu/menu-items/{{ $menu->id }}/{{ $menuItem->id }}" method="POST"
+                enctype="multipart/form-data">
                 @csrf
                 @method('Put')
                 <x-form.input name="name" :value="old('name', $menuItem->name)" />

@@ -42,8 +42,9 @@
                                     <tr>
                                         <td class="px-5 py-5 bg-white text-sm">
                                             <div class="flex">
-                                                <div class="flex-shrink-0 w-12 h-12">
-                                                    {{ $menuItem->image }}
+                                                <div class="flex-shrink-0 w-24 h-full">
+                                                    <img src="{{ asset('storage/menu-items/' . $menuItem->image) }}"
+                                                        alt="item">
                                                 </div>
                                             </div>
                                         </td>

@@ -2,7 +2,7 @@
     <x-dashboard>
         <div class="flex flex-col items-center w-96 pt-12">
             <h1 class="text-2xl font-bold">Create new menu item</h1>
-            <form action="/dashboard/menu/menu-items/{{ $id }}" method="POST">
+            <form action="/dashboard/menu/menu-items/{{ $id }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <x-form.input name="name" />
                 <x-form.input name="price" />

@@ -5,7 +5,7 @@
     <div class="flex flex-col flex-grow mb-3">
         <div x-data="{ files: null }" id="FileUpload"
             class="block w-full py-2 px-3 relative bg-white appearance-none border-2 border-gray-300 border-solid rounded-md hover:shadow-outline-gray">
-            <input type="file" multiple class="absolute inset-0 z-50 m-0 p-0 w-full h-full outline-none opacity-0"
+            <input type="file" class="absolute inset-0 z-50 m-0 p-0 w-full h-full outline-none opacity-0"
                 x-on:change="files = $event.target.files; console.log($event.target.files);"
                 x-on:dragover="$el.classList.add('active')" x-on:dragleave="$el.classList.remove('active')"
                 x-on:drop="$el.classList.remove('active')" name="{{ $name }}" id="{{ $name }}">
@@ -32,5 +32,5 @@
             </template>
         </div>
     </div>
-
+    <x-form.error name="{{ $name }}" />
 </x-form.field>

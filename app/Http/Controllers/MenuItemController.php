@@ -37,11 +37,12 @@ class MenuItemController extends Controller
             'price' => 'required|numeric',
             'description' => 'required',
             'category' => 'required',
-            'image' => ''
+            'image' => 'required|image'
         ]);
-
         $attributes['menu_id'] = $menu->id;
-        $attributes['image'] = "image";
+        $hashName = $request->file('image')->hashName();
+        $request->file('image')->storeAs('public/menu-items', $hashName);
+        $attributes['image'] = $hashName;
         MenuItem::create($attributes);
 
         return redirect("/dashboard/menu/menu-items/$menu->id")->with('success', 'Menu item has been added');
@@ -65,10 +66,17 @@ class MenuItemController extends Controller
             'price' => 'required|numeric',
             'description' => 'required',
             'category' => 'required',
-            'image' => ''
+            'image' => 'image'
         ]);
 
-        $attributes['image'] = "image";
+        // dd($request->file('image'));
+        if ($request->file('image') != null) {
+            unlink(storage_path('app/public/menu-items/' . $menuItem->image));
+            $hashName = $request->file('image')->hashName();
+            $request->file('image')->storeAs('public/menu-items', $hashName);
+            $attributes['image'] = $hashName;
+        }
+
         $menuItem->update($attributes);
 
         return redirect("/dashboard/menu/menu-items/$menu->id")->with('success', 'Menu item has been updated');
@@ -80,6 +88,7 @@ class MenuItemController extends Controller
     public function destroy(Menu $menu, MenuItem $menuItem)
     {
         $menuItem->delete();
+        unlink(storage_path('app/public/menu-items/' . $menuItem->image));
         return redirect("/dashboard/menu/menu-items/$menu->id")->with('success', 'Menu has been deleted');
     }
 }
