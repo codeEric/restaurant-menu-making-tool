@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('description');
             $table->string('image');
             $table->string('category');
-            $table->float('price');
+            $table->float('smprice');
+            $table->float('lgprice');
             $table->foreignId('menu_id');
             $table->timestamps();
         });

@@ -1,7 +1,7 @@
-@props(['name', 'type' => 'text', 'value' => null])
+@props(['name', 'type' => 'text', 'value' => null, 'labelName' => null])
 
 <x-form.field>
-    <x-form.label name="{{ $name }}" />
+    <x-form.label name="{{ $name }}" :labelName=$labelName />
 
     <input
         class="peer h-10 w-full rounded-md bg-gray-50 px-4 font-thin outline-none drop-shadow-sm transition-all duration-200 ease-in-out focus:bg-blue focus:drop-shadow-lg"

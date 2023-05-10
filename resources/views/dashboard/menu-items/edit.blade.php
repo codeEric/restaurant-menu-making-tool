@@ -7,7 +7,8 @@
                 @csrf
                 @method('Put')
                 <x-form.input name="name" :value="old('name', $menuItem->name)" />
-                <x-form.input name="price" :value="old('price', $menuItem->price)" />
+                <x-form.input name="smprice" :value="old('smprice', $menuItem->smprice)" labelName="Small price" />
+                <x-form.input name="lgprice" :value="old('lgprice', $menuItem->lgprice)" labelName="Large price" />
                 <x-form.textarea name="description">
                     {{ old('description', $menuItem->description) }}
                 </x-form.textarea>

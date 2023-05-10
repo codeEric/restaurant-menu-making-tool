@@ -34,7 +34,8 @@ class MenuItemController extends Controller
         // dd($request);
         $attributes = $request->validate([
             'name' => 'required',
-            'price' => 'required|numeric',
+            'smprice' => 'required|numeric',
+            'lgprice' => 'required|numeric',
             'description' => 'required',
             'category' => 'required',
             'image' => 'required|image'
@@ -63,7 +64,8 @@ class MenuItemController extends Controller
     {
         $attributes = $request->validate([
             'name' => 'required',
-            'price' => 'required|numeric',
+            'smprice' => 'required|numeric',
+            'lgprice' => 'required|numeric',
             'description' => 'required',
             'category' => 'required',
             'image' => 'image'

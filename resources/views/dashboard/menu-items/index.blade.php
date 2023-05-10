@@ -24,7 +24,11 @@
                                     </th>
                                     <th
                                         class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                                        Price
+                                        Small price
+                                    </th>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                                        Large price
                                     </th>
                                     <th
                                         class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
@@ -52,7 +56,10 @@
                                             <h1 class="text-lg font-bold">{{ $menuItem->name }}</h1>
                                         </td>
                                         <td class="px-5 py-5 bg-white text-sm">
-                                            <p>{{ $menuItem->price }}&euro;</p>
+                                            <p>{{ $menuItem->smprice }}&euro;</p>
+                                        </td>
+                                        <td class="px-5 py-5 bg-white text-sm">
+                                            <p>{{ $menuItem->lgprice }}&euro;</p>
                                         </td>
                                         <td class="px-5 py-5 bg-white text-sm">
                                             <p>{{ $menuItem->description }}</p>
