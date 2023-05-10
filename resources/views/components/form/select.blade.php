@@ -6,11 +6,10 @@
             <select id="{{ $name }}" name="{{ $name }}"
                 class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-400 focus:border-blue-400 sm:text-sm">
                 <option value="" disabled {{ $value == null ? 'selected' : '' }}>-- Select category --</option>
-                <option value="appetizers" {{ $value == 'appetizers' ? 'selected' : '' }}>Appetizers</option>
-                <option value="salads" {{ $value == 'salads' ? 'selected' : '' }}>Salads</option>
-                <option value="sides" {{ $value == 'sides' ? 'selected' : '' }}>Sides</option>
-                <option value="desserts" {{ $value == 'desserts' ? 'selected' : '' }}>Desserts</option>
-                <option value="beverages" {{ $value == 'beverages' ? 'selected' : '' }}>Beverages</option>
+                @foreach (\App\Models\Category::all() as $category)
+                    <option value="{{ $category->key }}" {{ $value == $category->key ? 'selected' : '' }}>
+                        {{ $category->value }}</option>
+                @endforeach
             </select>
         </div>
     </div>

@@ -18,5 +18,33 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        \App\Models\Category::create([
+            'key' => 'main',
+            'value' => 'Main dishes'
+        ]);
+        \App\Models\Category::create([
+            'key' => 'appetizers',
+            'value' => 'Appetizers'
+        ]);
+        \App\Models\Category::create([
+            'key' => 'salads',
+            'value' => 'Salads'
+        ]);
+        \App\Models\Category::create([
+            'key' => 'soups',
+            'value' => 'Soups'
+        ]);
+        \App\Models\Category::create([
+            'key' => 'kids',
+            'value' => 'Kids'
+        ]);
+        \App\Models\Category::create([
+            'key' => 'desserts',
+            'value' => 'Desserts'
+        ]);
+        \App\Models\Category::create([
+            'key' => 'beverages',
+            'value' => 'Beverages'
+        ]);
     }
 }

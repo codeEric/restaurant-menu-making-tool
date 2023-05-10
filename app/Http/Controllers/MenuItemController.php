@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use App\Models\MenuItem;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class MenuItemController extends Controller
@@ -14,7 +15,6 @@ class MenuItemController extends Controller
     public function index(Menu $menu)
     {
         $menuItems = $menu->menuItem->all();
-
         return view('dashboard.menu-items.index', ['menuItems' => $menuItems, 'menu' => $menu]);
     }
 
@@ -69,7 +69,6 @@ class MenuItemController extends Controller
             'image' => 'image'
         ]);
 
-        // dd($request->file('image'));
         if ($request->file('image') != null) {
             unlink(storage_path('app/public/menu-items/' . $menuItem->image));
             $hashName = $request->file('image')->hashName();
