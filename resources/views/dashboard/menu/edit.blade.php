@@ -6,7 +6,7 @@
                 @csrf
                 @method('put')
                 <input type="hidden" name="id" value="{{ $menu->id }}">
-                <x-form.input name="name" placeholder="Name" value="{{ $menu->name }}" />
+                <x-form.input name="name" placeholder="Name" value="{{ $menu->name }}" autocomplete="off" />
                 <div class="flex items-center justify-between">
                     <a href="/dashboard"
                         class="mt-6 flex justify-center items-center border border-green-400 text-black uppercase font-semibold text-xs py-2 px-8 mr-12 rounded-md hover:bg-green-600 hover:text-white hover:border-white">
@@ -38,6 +38,11 @@
                     class="w-full h-10 bg-blue-500 flex justify-center items-center text-black uppercase font-semibold text-xs py-2 px-8 mr-12 rounded-md hover:bg-blue-600">
                     Generate QR code
                 </a> --}}
+
+                <a href='{{ "/menu/$menu->url" }}'
+                    class="w-full h-10 bg-blue-500 flex justify-center items-center text-black uppercase font-semibold text-xs py-2 px-8 mr-12 rounded-md hover:bg-blue-600">
+                    Show menu
+                </a>
 
                 <div>
                     {!! QrCode::size(300)->generate("http://restaurant-menu-making-tool.test/$menu->url") !!}
