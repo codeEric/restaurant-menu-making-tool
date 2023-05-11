@@ -10,6 +10,7 @@ Route::middleware('auth')->group(
   function () {
     Route::get('/', [MenuController::class, 'index']);
     Route::resource('/dashboard/menu', MenuController::class)->except('show');
+    Route::get('/dashboard/menu/{menu}/qr', [MenuController::class, 'generateQR']);
     Route::delete('/dashboard/menu/menu-items/{menu}/{menuItem}', [MenuItemController::class, 'destroy']);
     Route::post('/dashboard/menu/menu-items/{menu}', [MenuItemController::class, 'store']);
     Route::put('/dashboard/menu/menu-items/{menu}/{menuItem}', [MenuItemController::class, 'update']);

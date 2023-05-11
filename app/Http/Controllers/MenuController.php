@@ -6,6 +6,7 @@ use App\Models\Menu;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class MenuController extends Controller
 {
@@ -59,5 +60,12 @@ class MenuController extends Controller
     {
         $menu->delete();
         return redirect("/dashboard/menu")->with('success', 'Menu has been deleted');
+    }
+
+    public function generateQR(Menu $menu)
+    {
+
+
+        return back()->with('success', 'QR code has been generated');
     }
 }

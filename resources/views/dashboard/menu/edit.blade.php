@@ -33,6 +33,17 @@
                         Delete menu
                     </button>
                 </form>
+
+                {{-- <a href='{{ "/dashboard/menu/$menu->id/qr" }}'
+                    class="w-full h-10 bg-blue-500 flex justify-center items-center text-black uppercase font-semibold text-xs py-2 px-8 mr-12 rounded-md hover:bg-blue-600">
+                    Generate QR code
+                </a> --}}
+
+                <div>
+                    {!! QrCode::size(300)->generate("http://restaurant-menu-making-tool.test/$menu->url") !!}
+                </div>
+
+
             </div>
         </div>
     </x-dashboard>
